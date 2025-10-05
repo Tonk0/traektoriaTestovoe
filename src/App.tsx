@@ -1,27 +1,17 @@
 import { Flex } from '@mantine/core';
-import { useEffect } from 'react';
 
-import { fetchVehicles } from './api/vehicles';
+import { Map } from './components/Map/Map';
 import { PanelWrapper } from './components/Shared/PanelWrapper';
-import { VehicleList } from './components/VehicleList/VehicleList';
-import { useVehicleStore } from './store/vehicleStore';
+import { VehiclePanel } from './components/VehicleList/VehiclePanel';
 
 function App() {
-  const setVehicles = useVehicleStore(state => state.setVehicles);
-  useEffect(() => {
-    const getVehicles = async () => {
-      const vehicles = await fetchVehicles();
-      setVehicles(vehicles);
-    };
-    getVehicles();
-  }, [setVehicles]);
   return (
     <Flex w="100vw" h="100vh" p="lg" gap="lg" wrap={{ base: 'wrap', md: 'nowrap' }} style={{ overflow: 'auto' }}>
       <PanelWrapper>
-        <VehicleList />
+        <VehiclePanel />
       </PanelWrapper>
       <PanelWrapper>
-        <VehicleList />
+        <Map />
       </PanelWrapper>
     </Flex>
   );

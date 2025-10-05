@@ -31,6 +31,10 @@ export default defineConfig([
       '@stylistic/jsx-one-expression-per-line': 'off',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
+      '@stylistic/jsx-self-closing-comp': ['error', {
+        'component': true,
+        'html': true
+      }]
     }
   },
 ])
